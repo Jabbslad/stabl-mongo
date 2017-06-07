@@ -1,0 +1,16 @@
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "1.1.2-2"
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre8"
+    compile 'com.squareup.okhttp3:okhttp:3.8.0'
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.github.robinkanters:podkast:0.1.1'
+    compile 'org.litote.kmongo:kmongo:3.3.5'
+}
