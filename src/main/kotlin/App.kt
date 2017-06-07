@@ -1,3 +1,5 @@
+package jabbslad
+
 import com.google.gson.Gson
 import com.mongodb.client.MongoDatabase
 import com.mongodb.client.model.Filters

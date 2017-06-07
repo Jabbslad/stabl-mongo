@@ -7,10 +7,29 @@ repositories {
     maven { url 'https://jitpack.io' }
 }
 
+apply plugin: 'application'
+
+mainClassName = 'jabbslad.AppKt'
+
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8"
+    compile "org.jetbrains.kotlin:kotlin-reflect:1.1.2-2"
     compile 'com.squareup.okhttp3:okhttp:3.8.0'
     compile 'com.google.code.gson:gson:2.8.0'
     compile 'com.github.robinkanters:podkast:0.1.1'
     compile 'org.litote.kmongo:kmongo:3.3.5'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'jabbslad.AppKt'
+        )
+    }
+}
+
+task copyDeps(type: Copy) {
+    from configurations.runtime
+    into 'build/libs'
 }
